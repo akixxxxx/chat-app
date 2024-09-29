@@ -22,7 +22,7 @@ module ChatApp
       g.styleseets false
       g.javascripts false
       g.helper false
-      g.test.farmework false
+      g.test.framework false
     end
   end
 end
