@@ -5,7 +5,7 @@ class RoomsController < ApplicationController
 
   def index
   end
-  
+
   def create
     @room = Room.new(room_params)
     if @room.save
@@ -14,10 +14,16 @@ class RoomsController < ApplicationController
       render :new, status: :unprocessable_entity
     end
   end
-end
 
-private
+  def destroy
+  room = Room.find(params[:id])
+  room.destroy
+  redirect_to root_path
+  end
 
-def room_params
+ private
+
+ def room_params
   params.require(:room).permit(:name, user_ids: [])
+ end
 end
